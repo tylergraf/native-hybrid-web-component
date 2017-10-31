@@ -1,0 +1,49 @@
+<template>
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <h2>Hello world!</h2>
+</template>
+<script>
+  ((window,HTMLElement)=>{
+    const doc = (document._currentScript || document.currentScript).ownerDocument;
+    const template = doc.querySelector('template');
+
+
+    /**
+     * `es5-element`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class Es5Element extends HTMLElement {
+      constructor(){
+        try{
+          super();
+          this.createdCallback();
+        } catch(e){}
+      }
+      createdCallback(){
+        var _template = document.importNode(template.content, true);
+        this.appendChild(_template);
+      }
+      connectedCallback(){
+        super.connectedCallback && super.connectedCallback();
+        this.attachedCallback();
+      }
+      attachedCallback(){
+        console.log('hi');
+      }
+    }
+
+    if(!('registerElement' in document) && ('customElements' in window)){
+      window.customElements.define('es5-element', Es5Element);
+    } else {
+      document.registerElement('es5-element', {prototype: Object.create(Es5Element.prototype)});
+    }
+  })(window,HTMLElement);
+</script>

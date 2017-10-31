@@ -1,0 +1,63 @@
+<template>
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <h2>Hello world!</h2>
+</template>
+<script>
+(function (window, HTMLElement) {
+  var doc = (document._currentScript || document.currentScript).ownerDocument;
+  var template = doc.querySelector('template');
+
+  /**
+   * `es5-element`
+   *
+   *
+   * @customElement
+   * @polymer
+   * @demo demo/index.html
+   */
+
+  var Es5Element = function (_HTMLElement) {
+    babelHelpers.inherits(Es5Element, _HTMLElement);
+
+    function Es5Element() {
+      babelHelpers.classCallCheck(this, Es5Element);
+
+      try {
+        var _this = babelHelpers.possibleConstructorReturn(this, (Es5Element.__proto__ || Object.getPrototypeOf(Es5Element)).call(this));
+
+        _this.createdCallback();
+      } catch (e) {}
+      return _this;
+    }
+
+    babelHelpers.createClass(Es5Element, [{
+      key: 'createdCallback',
+      value: function createdCallback() {
+        var _template = document.importNode(template.content, true);
+        this.appendChild(_template);
+      }
+    }, {
+      key: 'connectedCallback',
+      value: function connectedCallback() {
+        babelHelpers.get(Es5Element.prototype.__proto__ || Object.getPrototypeOf(Es5Element.prototype), 'connectedCallback', this) && babelHelpers.get(Es5Element.prototype.__proto__ || Object.getPrototypeOf(Es5Element.prototype), 'connectedCallback', this).call(this);
+        this.attachedCallback();
+      }
+    }, {
+      key: 'attachedCallback',
+      value: function attachedCallback() {
+        console.log('hi');
+      }
+    }]);
+    return Es5Element;
+  }(HTMLElement);
+
+  if (!('registerElement' in document) && 'customElements' in window) {
+    window.customElements.define('es5-element', Es5Element);
+  } else {
+    document.registerElement('es5-element', { prototype: Object.create(Es5Element.prototype) });
+  }
+})(window, HTMLElement);</script>

@@ -1,0 +1,32 @@
+{
+  "lint": {
+    "rules": [
+      "polymer-2"
+    ]
+  },
+  "entrypoint": "index.html",
+  "builds": [{
+    "name": "es5-v0",
+    "js": {"minify": false, "compile": true},
+    "css": {"minify": false},
+    "html": {"minify": false}
+  },
+  {
+    "name": "es6-v0",
+    "js": {"minify": false},
+    "css": {"minify": false},
+    "html": {"minify": false}
+  },
+  {
+    "name": "es5-v1",
+    "js": {"minify": false, "compile": true},
+    "css": {"minify": false},
+    "html": {"minify": false}
+  },
+  {
+    "name": "es6-v1",
+    "js": {"minify": false},
+    "css": {"minify": false},
+    "html": {"minify": false}
+  }]
+}
