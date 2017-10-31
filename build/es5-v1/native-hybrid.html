@@ -12,7 +12,7 @@
   var template = doc.querySelector('template');
 
   /**
-   * `es5-element`
+   * `native-hybrid`
    *
    *
    * @customElement
@@ -20,21 +20,21 @@
    * @demo demo/index.html
    */
 
-  var Es5Element = function (_HTMLElement) {
-    babelHelpers.inherits(Es5Element, _HTMLElement);
+  var NativeHybrid = function (_HTMLElement) {
+    babelHelpers.inherits(NativeHybrid, _HTMLElement);
 
-    function Es5Element() {
-      babelHelpers.classCallCheck(this, Es5Element);
+    function NativeHybrid() {
+      babelHelpers.classCallCheck(this, NativeHybrid);
 
       try {
-        var _this = babelHelpers.possibleConstructorReturn(this, (Es5Element.__proto__ || Object.getPrototypeOf(Es5Element)).call(this));
+        var _this = babelHelpers.possibleConstructorReturn(this, (NativeHybrid.__proto__ || Object.getPrototypeOf(NativeHybrid)).call(this));
 
         _this.createdCallback();
       } catch (e) {}
       return _this;
     }
 
-    babelHelpers.createClass(Es5Element, [{
+    babelHelpers.createClass(NativeHybrid, [{
       key: 'createdCallback',
       value: function createdCallback() {
         var _template = document.importNode(template.content, true);
@@ -43,7 +43,7 @@
     }, {
       key: 'connectedCallback',
       value: function connectedCallback() {
-        babelHelpers.get(Es5Element.prototype.__proto__ || Object.getPrototypeOf(Es5Element.prototype), 'connectedCallback', this) && babelHelpers.get(Es5Element.prototype.__proto__ || Object.getPrototypeOf(Es5Element.prototype), 'connectedCallback', this).call(this);
+        babelHelpers.get(NativeHybrid.prototype.__proto__ || Object.getPrototypeOf(NativeHybrid.prototype), 'connectedCallback', this) && babelHelpers.get(NativeHybrid.prototype.__proto__ || Object.getPrototypeOf(NativeHybrid.prototype), 'connectedCallback', this).call(this);
         this.attachedCallback();
       }
     }, {
@@ -52,12 +52,12 @@
         console.log('hi');
       }
     }]);
-    return Es5Element;
+    return NativeHybrid;
   }(HTMLElement);
 
   if (!('registerElement' in document) && 'customElements' in window) {
-    window.customElements.define('es5-element', Es5Element);
+    window.customElements.define('native-hybrid', NativeHybrid);
   } else {
-    document.registerElement('es5-element', { prototype: Object.create(Es5Element.prototype) });
+    document.registerElement('native-hybrid', { prototype: Object.create(NativeHybrid.prototype) });
   }
 })(window, HTMLElement);</script>

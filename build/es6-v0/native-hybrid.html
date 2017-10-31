@@ -13,14 +13,14 @@
 
 
     /**
-     * `es5-element`
+     * `native-hybrid`
      *
      *
      * @customElement
      * @polymer
      * @demo demo/index.html
      */
-    class Es5Element extends HTMLElement {
+    class NativeHybrid extends HTMLElement {
       constructor(){
         try{
           super();
@@ -41,9 +41,9 @@
     }
 
     if(!('registerElement' in document) && ('customElements' in window)){
-      window.customElements.define('es5-element', Es5Element);
+      window.customElements.define('native-hybrid', NativeHybrid);
     } else {
-      document.registerElement('es5-element', {prototype: Object.create(Es5Element.prototype)});
+      document.registerElement('native-hybrid', {prototype: Object.create(NativeHybrid.prototype)});
     }
   })(window,HTMLElement);
 </script>
