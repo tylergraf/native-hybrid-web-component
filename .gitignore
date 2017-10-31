@@ -1,3 +1,8 @@
 node_modules
 bower_components
 !build/**/bower_components
+analysis.json
+native-hybrid.html
+package.json
+bower.json
+polymer.json
